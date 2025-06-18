@@ -4,7 +4,7 @@ from playwright.sync_api import sync_playwright
 @pytest.fixture(scope="function")
 def browser_page():
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False, slow_mo=200)
+        browser = p.chromium.launch(headless=True, slow_mo=200)
         context = browser.new_context()
         page = context.new_page()
         yield page
